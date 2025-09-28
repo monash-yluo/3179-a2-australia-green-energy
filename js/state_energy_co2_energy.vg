@@ -1,0 +1,110 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Australia State CO2 Emissions And Energy Generation in 2023 (Financial Year)",
+    "data": {
+        "name": "energy_data",
+        "url": "https://raw.githubusercontent.com/monash-yluo/3179-a2-australia-green-energy/refs/heads/main/data/energy_state_fy_2023.csv"
+    },
+    "width": 400,
+    "height": 400,
+    "transform": [
+        {
+            "lookup": "short_state_code",
+            "from": {
+                "data": {
+                    "url": "../data/Emissions by state and territory 2023 energy detail.csv"
+                },
+                "key": "Location",
+                "fields": [
+                    "Public Electricity and Heat Production (Mt)"
+                ]
+            }
+        }
+    ],
+    "layer": [
+        {
+            "mark": "circle",
+            "encoding": {
+                "x": {
+                    "field": "total_generation",
+                    "type": "quantitative",
+                    "title": "Total Energy Generation (GWh)"
+                },
+                "y": {
+                    "field": "Public Electricity and Heat Production (Mt)",
+                    "type": "quantitative",
+                    "title": "CO2 Emissions from Energy (Mt)"
+                },
+                "size": {
+                    "field": "renewable_percent",
+                    "type": "quantitative",
+                    "title": "Renewable Percent (%)",
+                    "scale": {
+                        "range": [
+                            100,
+                            1000
+                        ]
+                    }
+                },
+                "color": {
+                    "field": "renewable_percent",
+                    "type": "quantitative",
+                    "title": "Renewable Percent (%)",
+                    "scale": {
+                        "scheme": "greens"
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "state",
+                        "type": "nominal",
+                        "title": "State"
+                    },
+                    {
+                        "field": "total_generation",
+                        "type": "quantitative",
+                        "title": "Total Energy Generation (GWh)"
+                    },
+                    {
+                        "field": "Public Electricity and Heat Production (Mt)",
+                        "type": "quantitative",
+                        "title": "CO2 Emissions from Energy (Mt)"
+                    },
+                    {
+                        "field": "renewable_percent",
+                        "type": "quantitative",
+                        "title": "Renewable Percent (%)"
+                    }
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "middle",
+                "dy": -10
+            },
+            "encoding": {
+                "x": {
+                    "field": "total_generation",
+                    "type": "quantitative"
+                },
+                "y": {
+                    "field": "Public Electricity and Heat Production (Mt)",
+                    "type": "quantitative"
+                },
+                "text": {
+                    "field": "short_state_code",
+                    "type": "nominal"
+                },
+                "color": {
+                    "value": "black"
+                },
+                "size": {
+                    "value": 12
+                }
+            }
+        }
+    ]
+}

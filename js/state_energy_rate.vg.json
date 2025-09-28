@@ -1,7 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Australia State Renewable Energy Rates in 2023 (Financial Year)",
-    "width": "container",
+    "width": 800,
+    "height": 500,
     "data": {
         "url": "https://raw.githubusercontent.com/monash-yluo/fit3179_w9_homework/main/js/ne_10m_admin_1_states_provinces.topojson",
         "format": {
