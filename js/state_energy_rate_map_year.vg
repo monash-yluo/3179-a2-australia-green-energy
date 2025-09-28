@@ -13,6 +13,19 @@
     "projection": {
         "type": "mercator"
     },
+    "params": [
+        {
+            "name": "year_selection",
+            "value": 2023,
+            "bind": {
+                "input": "range",
+                "min": 2012,
+                "max": 2023,
+                "step": 1,
+                "name": "Year:  "
+            }
+        }
+    ],
     "layer": [
         {
             "transform": [
@@ -38,17 +51,27 @@
                     "lookup": "properties.iso_3166_2",
                     "from": {
                         "data": {
-                            "url": "https://raw.githubusercontent.com/monash-yluo/3179-a2-australia-green-energy/refs/heads/main/data/energy_state_fy_2023.csv"
+                            "url": "../data/Table_O_FY_pivot.csv",
+                            "format": {
+                                "type": "csv"
+                            }
                         },
-                        "key": "state_code",
+                        "key": "iso_3166_2",
                         "fields": [
-                            "renewable_percent",
-                            "state",
-                            "total_generation",
-                            "total_non_renewable",
-                            "total_renewable"
+                            "Jurisdiction",
+                            "Total renewable",
+                            "Total non-renewable",
+                            "Total",
+                            "Year"
                         ]
                     }
+                },
+                {
+                    "filter": "datum.Year == 2023"
+                },
+                {
+                    "calculate": "datum['Total renewable'] / datum['Total'] * 100",
+                    "as": "renewable_percent"
                 },
                 {
                     "calculate": "datum.renewable_percent == null ? 'N/A' : format(datum.renewable_percent, ',.0f') + ' %'",
@@ -89,19 +112,19 @@
                         "title": "Renewable Energy Percent"
                     },
                     {
-                        "field": "total_renewable",
+                        "field": "Total renewable",
                         "type": "quantitative",
                         "title": "Total Renewable Generation (GWh)",
                         "format": ",.0f"
                     },
                     {
-                        "field": "total_non_renewable",
+                        "field": "Total non-renewable",
                         "type": "quantitative",
                         "title": "Total Non-Renewable Generation (GWh)",
                         "format": ",.0f"
                     },
                     {
-                        "field": "total_generation",
+                        "field": "Total",
                         "type": "quantitative",
                         "title": "Total Generation (GWh)",
                         "format": ",.0f"
