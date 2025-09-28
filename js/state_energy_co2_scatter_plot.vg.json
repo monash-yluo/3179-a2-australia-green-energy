@@ -5,8 +5,7 @@
         "name": "energy_data",
         "url": "https://raw.githubusercontent.com/monash-yluo/3179-a2-australia-green-energy/refs/heads/main/data/energy_state_fy_2023.csv"
     },
-    "width": 400,
-    "height": 400,
+    "width": "container",
     "transform": [
         {
             "lookup": "short_state_code",
