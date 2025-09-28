@@ -1,8 +1,13 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Australia State Renewable Energy Rates",
-    "height": 500,
-    
+    "title": {
+        "text": {
+            "signal": "'Australia State Renewable Energy Rates (' + year_selection + ')'"
+        },
+        "anchor": "middle"
+    },
+    "width": "container",
+    "height": 350,
     "projection": {
         "type": "mercator"
     },
