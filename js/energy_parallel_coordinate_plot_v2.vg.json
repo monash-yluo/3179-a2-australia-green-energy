@@ -1,14 +1,54 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-    "description": "Though Vega-Lite supports only one scale per axes, one can create a parallel coordinate plot by folding variables, using `joinaggregate` to normalize their values and using ticks and rules to manually create axes.",
+    "title": "Electricity Generation and CO2 Emissions (2012-2021)",
+    "params": [
+        {
+            "name": "selected_jurisdiction",
+            "value": null,
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "NSW",
+                    "VIC",
+                    "QLD",
+                    "WA",
+                    "SA",
+                    "TAS",
+                    "NT"
+                ],
+                "labels": [
+                    "All",
+                    "New South Wales",
+                    "Victoria",
+                    "Queensland",
+                    "Western Australia",
+                    "South Australia",
+                    "Tasmania",
+                    "Northern Territory"
+                ],
+                "name": "Select State: "
+            }
+        }
+    ],
     "data": {
-        "url": "data/penguins.json"
+        "url": "../data/merged_electricity_emissions_data.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "Black coal": "number",
+                "Brown coal": "number",
+                "Natural gas": "number",
+                "Oil products": "number",
+                "CO2 Emissions": "number"
+            }
+        }
     },
     "width": 600,
     "height": 300,
     "transform": [
         {
-            "filter": "datum['Beak Length (mm)']"
+            "filter": "datum.Year >= 2012"
         },
         {
             "window": [
@@ -20,11 +60,20 @@
         },
         {
             "fold": [
-                "Beak Length (mm)",
-                "Beak Depth (mm)",
-                "Flipper Length (mm)",
-                "Body Mass (g)"
+                "Oil products",
+                "Natural gas",
+                "Brown coal",
+                "Black coal",
+                "CO2 Emissions"
+            ],
+            "as": [
+                "key",
+                "value"
             ]
+        },
+        {
+            "calculate": "indexof(['Oil products','Natural gas','Brown coal','Black coal','CO2 Emissions'], datum.key)",
+            "as": "keyOrder"
         },
         {
             "joinaggregate": [
@@ -50,6 +99,9 @@
         {
             "calculate": "(datum.min + datum.max) / 2",
             "as": "mid"
+        },
+        {
+            "filter": "!selected_jurisdiction || selected_jurisdiction === datum.Jurisdiction"
         }
     ],
     "layer": [
@@ -63,7 +115,12 @@
                     "aggregate": "count"
                 },
                 "x": {
-                    "field": "key"
+                    "field": "key",
+                    "type": "nominal",
+                    "sort": {
+                        "field": "keyOrder",
+                        "order": "ascending"
+                    }
                 }
             }
         },
@@ -72,7 +129,7 @@
             "encoding": {
                 "color": {
                     "type": "nominal",
-                    "field": "Species"
+                    "field": "Jurisdiction"
                 },
                 "detail": {
                     "type": "nominal",
@@ -83,7 +140,11 @@
                 },
                 "x": {
                     "type": "nominal",
-                    "field": "key"
+                    "field": "key",
+                    "sort": {
+                        "field": "keyOrder",
+                        "order": "ascending"
+                    }
                 },
                 "y": {
                     "type": "quantitative",
@@ -92,20 +153,39 @@
                 },
                 "tooltip": [
                     {
-                        "type": "quantitative",
-                        "field": "Beak Length (mm)"
+                        "field": "Jurisdiction",
+                        "type": "nominal",
+                        "title": "State"
                     },
                     {
+                        "field": "Year",
                         "type": "quantitative",
-                        "field": "Beak Depth (mm)"
+                        "title": "Year"
                     },
                     {
+                        "field": "Black coal",
                         "type": "quantitative",
-                        "field": "Flipper Length (mm)"
+                        "title": "Black coal (GWh)"
                     },
                     {
+                        "field": "Brown coal",
                         "type": "quantitative",
-                        "field": "Body Mass (g)"
+                        "title": "Brown coal (GWh)"
+                    },
+                    {
+                        "field": "Natural gas",
+                        "type": "quantitative",
+                        "title": "Natural gas (GWh)"
+                    },
+                    {
+                        "field": "Oil products",
+                        "type": "quantitative",
+                        "title": "Oil products (GWh)"
+                    },
+                    {
+                        "field": "CO2_Emissions",
+                        "type": "quantitative",
+                        "title": "CO2 Emissions (Mt)"
                     }
                 ]
             }
@@ -114,7 +194,11 @@
             "encoding": {
                 "x": {
                     "type": "nominal",
-                    "field": "key"
+                    "field": "key",
+                    "sort": {
+                        "field": "keyOrder",
+                        "order": "ascending"
+                    }
                 },
                 "y": {
                     "value": 0
@@ -147,7 +231,11 @@
             "encoding": {
                 "x": {
                     "type": "nominal",
-                    "field": "key"
+                    "field": "key",
+                    "sort": {
+                        "field": "keyOrder",
+                        "order": "ascending"
+                    }
                 },
                 "y": {
                     "value": 150
@@ -180,7 +268,11 @@
             "encoding": {
                 "x": {
                     "type": "nominal",
-                    "field": "key"
+                    "field": "key",
+                    "sort": {
+                        "field": "keyOrder",
+                        "order": "ascending"
+                    }
                 },
                 "y": {
                     "value": 300
