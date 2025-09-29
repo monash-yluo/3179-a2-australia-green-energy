@@ -52,7 +52,7 @@
         },
         {
             "data": {
-                "url": "../data/Table_O_FY_pivot.csv",
+                "url": "https://raw.githubusercontent.com/monash-yluo/3179-a2-australia-green-energy/refs/heads/main/data/Table_O_FY_pivot.csv",
                 "format": {
                     "type": "csv"
                 }

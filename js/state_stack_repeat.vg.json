@@ -1,0 +1,121 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "../data/Table_O_FY_pivot.csv"
+    },
+    "transform": [
+        {
+            "filter": "datum.Jurisdiction !== 'AUS'"
+        },
+        {
+            "fold": [
+                "Bagasse, wood",
+                "Biogas",
+                "Black coal",
+                "Brown coal",
+                "Geothermal",
+                "Hydro",
+                "Large-scale solar PV",
+                "Natural gas",
+                "Oil products",
+                "Other",
+                "Small-scale solar PV",
+                "Wind"
+            ],
+            "as": [
+                "EnergyType",
+                "Generation"
+            ]
+        }
+    ],
+    "repeat": {
+        "column": [
+            "NSW",
+            "NT",
+            "QLD",
+            "SA",
+            "TAS",
+            "VIC",
+            "WA"
+        ]
+    },
+    "spec": {
+        "width": 120,
+        "height": 300,
+        "transform": [
+            {
+                "filter": {
+                    "field": "Jurisdiction",
+                    "equal": {
+                        "repeat": "column"
+                    }
+                }
+            }
+        ],
+        "mark": "bar",
+        "encoding": {
+            "x": {
+                "field": "Year",
+                "type": "ordinal",
+                "title": "Year",
+                "axis": {
+                    "labelAngle": -45
+                }
+            },
+            "y": {
+                "aggregate": "sum",
+                "field": "Generation",
+                "type": "quantitative",
+                "title": "Generation (GWh)",
+                "stack": true
+            },
+            "color": {
+                "field": "EnergyType",
+                "type": "nominal",
+                "title": "Energy Type",
+                "scale": {
+                    "scheme": "category20"
+                },
+                "legend": {
+                    "symbolLimit": 20,
+                    "labelLimit": 100
+                }
+            },
+            "tooltip": [
+                {
+                    "field": "Year",
+                    "type": "ordinal",
+                    "title": "Year"
+                },
+                {
+                    "field": "EnergyType",
+                    "type": "nominal",
+                    "title": "Energy Type"
+                },
+                {
+                    "aggregate": "sum",
+                    "field": "Generation",
+                    "type": "quantitative",
+                    "title": "Generation (GWh)",
+                    "format": ".1f"
+                }
+            ]
+        }
+    },
+    "resolve": {
+        "scale": {
+            "color": "independent",
+            "x": "independent",
+            "y": "independent"
+        }
+    },
+    "config": {
+        "axis": {
+            "grid": true,
+            "gridColor": "#e0e0e0"
+        },
+        "view": {
+            "stroke": "transparent"
+        }
+    }
+}

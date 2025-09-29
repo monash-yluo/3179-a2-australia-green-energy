@@ -1,0 +1,183 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+    "data": {
+        "values": [
+            {
+                "city": "Beijing",
+                "year": 2020,
+                "sales": 100,
+                "product": "A"
+            },
+            {
+                "city": "Beijing",
+                "year": 2021,
+                "sales": 120,
+                "product": "A"
+            },
+            {
+                "city": "Beijing",
+                "year": 2020,
+                "sales": 80,
+                "product": "B"
+            },
+            {
+                "city": "Beijing",
+                "year": 2021,
+                "sales": 90,
+                "product": "B"
+            },
+            {
+                "city": "Shanghai",
+                "year": 2020,
+                "sales": 80,
+                "product": "A"
+            },
+            {
+                "city": "Shanghai",
+                "year": 2021,
+                "sales": 90,
+                "product": "A"
+            },
+            {
+                "city": "Shanghai",
+                "year": 2020,
+                "sales": 70,
+                "product": "B"
+            },
+            {
+                "city": "Shanghai",
+                "year": 2021,
+                "sales": 85,
+                "product": "B"
+            },
+            {
+                "city": "Guangzhou",
+                "year": 2020,
+                "sales": 60,
+                "product": "A"
+            },
+            {
+                "city": "Guangzhou",
+                "year": 2021,
+                "sales": 70,
+                "product": "A"
+            },
+            {
+                "city": "Guangzhou",
+                "year": 2020,
+                "sales": 50,
+                "product": "B"
+            },
+            {
+                "city": "Guangzhou",
+                "year": 2021,
+                "sales": 65,
+                "product": "B"
+            },
+            {
+                "city": "Shenzhen",
+                "year": 2020,
+                "sales": 75,
+                "product": "A"
+            },
+            {
+                "city": "Shenzhen",
+                "year": 2021,
+                "sales": 85,
+                "product": "A"
+            },
+            {
+                "city": "Shenzhen",
+                "year": 2020,
+                "sales": 65,
+                "product": "B"
+            },
+            {
+                "city": "Shenzhen",
+                "year": 2021,
+                "sales": 80,
+                "product": "B"
+            }
+        ]
+    },
+    "facet": {
+        "column": {
+            "field": "city",
+            "type": "nominal",
+            "header": {
+                "title": "City"
+            }
+        }
+    },
+    "spec": {
+        "width": 150,
+        "height": 300,
+        "mark": "bar",
+        "encoding": {
+            "x": {
+                "field": "year",
+                "type": "ordinal",
+                "title": "Year",
+                "axis": {
+                    "labelAngle": 0
+                }
+            },
+            "y": {
+                "field": "sales",
+                "type": "quantitative",
+                "title": "Sales",
+                "aggregate": "sum"
+            },
+            "color": {
+                "field": "product",
+                "type": "nominal",
+                "title": "Product Type",
+                "scale": {
+                    "domain": [
+                        "A",
+                        "B"
+                    ],
+                    "range": [
+                        "#1f77b4",
+                        "#ff7f0e"
+                    ]
+                }
+            },
+            "tooltip": [
+                {
+                    "field": "year",
+                    "type": "ordinal",
+                    "title": "Year"
+                },
+                {
+                    "field": "sales",
+                    "type": "quantitative",
+                    "aggregate": "sum",
+                    "title": "Total Sales"
+                },
+                {
+                    "field": "product",
+                    "type": "nominal",
+                    "title": "Product"
+                }
+            ]
+        }
+    },
+    "config": {
+        "facet": {
+            "spacing": 15
+        },
+        "axis": {
+            "grid": true,
+            "gridColor": "#e0e0e0"
+        },
+        "view": {
+            "stroke": "transparent"
+        }
+    },
+    "title": {
+        "text": "Sales by City, Year and Product",
+        "anchor": "start",
+        "fontSize": 16
+    }
+}

@@ -33,19 +33,14 @@
 
             <div class="row my-4 p-3">
                 <div class="col">
-                    <p class="lead">This dashboard presents an analysis of Australia's green energy landscape in 2023 (Financial
-                        Year).
-                        The visualizations below illustrate the relationship between CO2 emissions and energy generation
-                        across different states, as well as the renewable energy rates in each state.</p>
+                    <p class="lead">这个数据可视化旨在展示澳大利亚的清洁能源与二氧化碳排放结构,面向一般公众。</p>
                 </div>
             </div>
 
             <div class="row my-4 p-3">
                 <div class="col-lg-6 mb-4">
                     <h3>Energy Generation vs CO2 Emissions</h3>
-                    <p>This scatter plot shows the correlation between total energy generation (in GWh) and CO2
-                        emissions from energy (in Mt) for each state. Each point represents a state, labeled with its
-                        abbreviation.</p>
+                    <p class="text-muted">这个散点图展示了各州总能源发电量(以GWh为单位)与能源二氧化碳排放量(以Mt为单位)之间的相关性。每个点代表一个州，并标注其缩写。</p>
                 </div>
                 <div class="col-lg-6">
                     <div id="energy_scatter_plot" class="vis-container"></div>
@@ -59,7 +54,7 @@
                 <div class="col-lg-4 mb-4">
                     <h3>Australia Become Greener</h3>
                     <p class="text-muted">澳大利亚各州可再生能源发电比例（%）随着时间的变化趋势。使用滑块选择不同年份，地图将动态更新以反映所选年份的可再生能源发电比例。</p>
-                    <p>从图中可以清晰的感觉到, 澳大利亚清洁能源在这十年间飞速发展</p>
+                    <p class="text-muted">从图中可以清晰的感觉到, 澳大利亚清洁能源在这十年间飞速发展</p>
                 </div>
             </div>
         </div>
@@ -73,7 +68,7 @@
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
 
-        var state_energy_rate_map_year = "js/state_energy_rate_map_year.vg";
+        var state_energy_rate_map_year = "js/state_energy_rate_map_year.vg.json";
         vegaEmbed('#state_energy_rate_map_year', state_energy_rate_map_year).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
