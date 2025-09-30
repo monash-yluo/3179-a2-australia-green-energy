@@ -45,6 +45,18 @@
             "as": "categoryOrder"
         }
     ],
+    "params": [
+        {
+            "name": "selectSector",
+            "select": {
+                "type": "point",
+                "fields": [
+                    "Sector"
+                ]
+            },
+            "bind": "legend"
+        }
+    ],
     "mark": "area",
     
     "encoding": {
@@ -57,6 +69,13 @@
         "y": {
             "field": "value",
             "type": "quantitative"
+        },
+        "opacity": {
+            "condition": {
+                "param": "selectSector",
+                "value": 1
+            },
+            "value": 0.2
         },
         "color": {
             "field": "Sector",
