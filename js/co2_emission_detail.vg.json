@@ -7,26 +7,35 @@
             "type": "csv",
             "parse": {
                 "Financial Year": "date:%Y",
-                "1 Energy (Mt)": "number",
-                "2 Industrial Processes (Mt)": "number",
-                "3 Agriculture (Mt)": "number",
-                "4 Land Use, Land-Use Change and Forestry UNFCCC (Mt)": "number",
-                "5 Waste (Mt)": "number"
+                "Energy (Mt)": "number",
+                "Industrial Processes (Mt)": "number",
+                "Agriculture (Mt)": "number",
+                "Land Use, Land-Use Change and Forestry UNFCCC (Mt)": "number",
+                "Waste (Mt)": "number"
             }
         }
     },
     "transform": [
         {
             "fold": [
-                "1 Energy (Mt)",
-                "2 Industrial Processes (Mt)",
-                "3 Agriculture (Mt)",
-                "4 Land Use, Land-Use Change and Forestry UNFCCC (Mt)",
-                "5 Waste (Mt)"
+                "Industrial Processes",
+                "Waste",
+                "Agriculture",
+                "Energy",
+                "Land Use, Land-Use Change and Forestry UNFCCC"
+            ],
+            "as": [
+                "Sector",
+                "value"
             ]
+        },
+        {
+            "calculate": "if(datum.Sector === 'Industrial Processes', 0, if(datum.Sector === 'Waste', 1, if(datum.Sector === 'Agriculture', 2, if(datum.Sector === 'Energy', 3, 4))))",
+            "as": "categoryOrder"
         }
     ],
     "mark": "area",
+    
     "encoding": {
         "x": {
             "field": "Financial Year",
@@ -39,8 +48,38 @@
             "type": "quantitative"
         },
         "color": {
-            "field": "key",
-            "type": "nominal"
-        }
+            "field": "Sector",
+            "type": "nominal",
+            "sort": [
+                "Industrial Processes",
+                "Waste",
+                "Agriculture",
+                "Energy",
+                "Land Use, Land-Use Change and Forestry UNFCCC"
+            ]
+        },
+        "order":{
+            "field": "categoryOrder",
+            "type": "quantitative",
+            "sort": "descending"
+        },
+        "tooltip": [
+            {
+                "field": "Financial Year",
+                "type": "temporal",
+                "title": "Year",
+                "timeUnit": "year"
+            },
+            {
+                "field": "Sector",
+                "type": "nominal",
+                "title": "Sector"
+            },
+            {
+                "field": "value",
+                "type": "quantitative",
+                "title": "CO2 Emission (Mt)"
+            }
+        ]
     }
 }
