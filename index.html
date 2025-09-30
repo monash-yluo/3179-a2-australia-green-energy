@@ -21,6 +21,12 @@
         .vis-container {
             width: 100%;
         }
+        .vis-container-repeat-2 {
+            width: 50%;
+        }
+        .vis-container-repeat-4 {
+            width: 25%;
+        }
     </style>
 </head>
 
@@ -28,18 +34,21 @@
     <main>
         <div class="container p-4 bg-white">
 
+            <!-- 标题 -->
             <div class="row my-4">
                 <div class="col">
                     <h1 class="text-center">Australia Green Energy</h1>
                 </div>
             </div>
 
+            <!-- 介绍 -->
             <div class="row my-4 p-3">
                 <div class="col">
                     <p class="lead">这个数据可视化旨在展示澳大利亚的清洁能源与二氧化碳排放结构,面向一般公众。</p>
                 </div>
             </div>
 
+            <!-- 可视化图表 散点图 -->
             <div class="row my-4 p-3">
                 <div class="col-lg-6 mb-4">
                     <h3>Energy Generation vs CO2 Emissions</h3>
@@ -50,6 +59,7 @@
                 </div>
             </div>
 
+            <!-- 可视化图表 地图 -->
             <div class="row my-4 p-3">
                 <div class="col-lg-8">
                     <div id="state_energy_rate_map_year" class="vis-container"></div>
@@ -60,8 +70,31 @@
                     <p class="text-muted">从图中可以清晰的感觉到, 澳大利亚清洁能源在这十年间飞速发展</p>
                 </div>
             </div>
-        </div>
 
+            <!-- 细分能源结构 AUS -->
+            <div class="row my-4 p-3">
+                <div class="col-12 text-center mb-4">
+                    <h3>让我们走进看看澳大利亚电力结构</h3>
+                    <p class="text-muted">澳大利亚各州能源结构细分 (注意数据缺失2000-2010)</p>
+                </div>
+                <div class="col-12">
+                    <div id="aus_stacked_area_chart" class="vis-container"></div>
+                </div>
+            </div>
+
+            <!-- 州能源细分 -->
+            <div class="row my-4 p-3">
+                <div class="col-12 text-center mb-4">
+                    <h3>More Close To State</h3>
+                    <p class="text-muted">澳大利亚各州能源结构细分</p>
+                </div>
+                <div class="col-12">
+                    <div id="state_stack_repeat" class="vis-container-repeat-4"></div>
+                </div>
+            </div>
+
+            
+            
     </main>
 
     <script type="text/javascript">
@@ -73,8 +106,21 @@
 
         var state_energy_rate_map_year = "js/state_energy_rate_map_year.vg.json";
         vegaEmbed('#state_energy_rate_map_year', state_energy_rate_map_year).then(function (result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+
         }).catch(console.error);
+
+        var aus_stacked_area_chart = "js/aus_stacked_area_chart.vg.json";
+        vegaEmbed('#aus_stacked_area_chart', aus_stacked_area_chart).then(function
+            (result) {
+
+        }).catch(console.error);
+
+        var state_stack_repeat = "js/state_stack_repeat.vg.json";
+        vegaEmbed('#state_stack_repeat', state_stack_repeat).then(function (result) {
+
+        }).catch(console.error);
+
+
     </script>
 
 </body>

@@ -3,9 +3,9 @@
     "title": {
         "text": "Australia (AUS) Electricity Generation by Energy Type",
         "fontSize": 16,
-        "anchor": "start"
+        "anchor": "middle"
     },
-    "width":400,
+    "width":"container",
     "height":400,
     "config": {
         "axis": {
