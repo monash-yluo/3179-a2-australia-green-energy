@@ -1,3 +1,46 @@
 {
-    
+    "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+    "title": "Aus CO2 Emission Detail",
+    "data": {
+        "url": "https://raw.githubusercontent.com/monash-yluo/3179-a2-australia-green-energy/refs/heads/main/data/UNFCCC_Paris%C2%A0Agreement%20inventory_30-09-2025_14-34-38.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "Financial Year": "date:%Y",
+                "1 Energy (Mt)": "number",
+                "2 Industrial Processes (Mt)": "number",
+                "3 Agriculture (Mt)": "number",
+                "4 Land Use, Land-Use Change and Forestry UNFCCC (Mt)": "number",
+                "5 Waste (Mt)": "number"
+            }
+        }
+    },
+    "transform": [
+        {
+            "fold": [
+                "1 Energy (Mt)",
+                "2 Industrial Processes (Mt)",
+                "3 Agriculture (Mt)",
+                "4 Land Use, Land-Use Change and Forestry UNFCCC (Mt)",
+                "5 Waste (Mt)"
+            ]
+        }
+    ],
+    "mark": "area",
+    "encoding": {
+        "x": {
+            "field": "Financial Year",
+            "type": "temporal",
+            "title": "Year",
+            "timeUnit": "year"
+        },
+        "y": {
+            "field": "value",
+            "type": "quantitative"
+        },
+        "color": {
+            "field": "key",
+            "type": "nominal"
+        }
+    }
 }
