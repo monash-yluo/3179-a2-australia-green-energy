@@ -1,6 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
     "title": "Electricity Generation and CO2 Emissions (2012-2021)",
+    "width": "container",
+    "height": 300,
     "params": [
         {
             "name": "selected_jurisdiction",
@@ -32,7 +34,7 @@
         }
     ],
     "data": {
-        "url": "../data/merged_electricity_emissions_data.csv",
+        "url": "https://raw.githubusercontent.com/monash-yluo/3179-a2-australia-green-energy/refs/heads/main/data/merged_electricity_emissions_data.csv",
         "format": {
             "type": "csv",
             "parse": {
@@ -44,8 +46,6 @@
             }
         }
     },
-    "width": 600,
-    "height": 300,
     "transform": [
         {
             "filter": "datum.Year >= 2012"
@@ -129,7 +129,8 @@
             "encoding": {
                 "color": {
                     "type": "nominal",
-                    "field": "Jurisdiction"
+                    "field": "Jurisdiction",
+                    "title": "State"
                 },
                 "detail": {
                     "type": "nominal",

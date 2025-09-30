@@ -20,7 +20,8 @@
                 "min": 2012,
                 "max": 2023,
                 "step": 1,
-                "name": "Year:  "
+                "name": "Year:  ",
+                "element": ".map-yeaar-slider"
             }
         }
     ],

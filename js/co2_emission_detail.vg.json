@@ -1,6 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
     "title": "Aus CO2 Emission Detail",
+    "width": "container",
+    "height": 300,
     "data": {
         "url": "https://raw.githubusercontent.com/monash-yluo/3179-a2-australia-green-energy/refs/heads/main/data/UNFCCC_Paris%C2%A0Agreement%20inventory_30-09-2025_14-34-38.csv",
         "format": {

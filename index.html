@@ -21,9 +21,11 @@
         .vis-container {
             width: 100%;
         }
+
         .vis-container-repeat-2 {
             width: 50%;
         }
+
         .vis-container-repeat-4 {
             width: 25%;
         }
@@ -54,7 +56,7 @@
                     <h3>Energy Generation vs CO2 Emissions</h3>
                     <p class="text-muted">这个散点图展示了各州总能源发电量(以GWh为单位)与能源二氧化碳排放量(以Mt为单位)之间的相关性。每个点代表一个州，并标注其缩写。</p>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 mb-4">
                     <div id="energy_scatter_plot" class="vis-container"></div>
                 </div>
             </div>
@@ -62,7 +64,12 @@
             <!-- 可视化图表 地图 -->
             <div class="row my-4 p-3">
                 <div class="col-lg-8">
-                    <div id="state_energy_rate_map_year" class="vis-container"></div>
+                    <div class="col-12">
+                        <div id="state_energy_rate_map_year" class="vis-container"></div>
+                    </div>
+                    <div class="col-12">
+                        <div class="map-yeaar-slider text-center"></div>
+                    </div>
                 </div>
                 <div class="col-lg-4 mb-4">
                     <h3>Australia Become Greener</h3>
@@ -74,10 +81,10 @@
             <!-- 细分能源结构 AUS -->
             <div class="row my-4 p-3">
                 <div class="col-12 text-center mb-4">
-                    <h3>让我们走进看看澳大利亚电力结构</h3>
+                    <h2>让我们走进看看澳大利亚电力结构</h2>
                     <p class="text-muted">澳大利亚各州能源结构细分 (注意数据缺失2000-2010)</p>
                 </div>
-                <div class="col-12">
+                <div class="col-12 mb-4">
                     <div id="aus_stacked_area_chart" class="vis-container"></div>
                 </div>
             </div>
@@ -85,17 +92,76 @@
             <!-- 州能源细分 -->
             <div class="row my-4 p-3">
                 <div class="col-12 text-center mb-4">
-                    <h3>More Close To State</h3>
+                    <h2>More Close To State</h2>
                     <p class="text-muted">澳大利亚各州能源结构细分</p>
                 </div>
-                <div class="col-12">
+                <div class="col-12 mb-4">
                     <div id="state_stack_repeat" class="vis-container-repeat-4"></div>
                 </div>
             </div>
 
-            
-            
+            <!-- 回到二氧化碳 -->
+            <div class="row my-4 p-3">
+                <div class="col-12 my-4 p-3 text-center">
+                    <h2>Back To CO2 Emissions</h2>
+                </div>
+
+                <!-- 寻找二氧化碳和能源的关系 -->
+                <div class="col-lg-4 p-3 mb-4">
+                    <h3>寻找二氧化碳和能源的关系</h3>
+                    <p class="text-muted">这个平行坐标图</p>
+                </div>
+                <div class="col-lg-8 mb-4">
+                    <div id="energy_parallel_coordinate_plot_v2" class="vis-container"></div>
+                </div>
+
+                <!-- 二氧化碳排放细分 -->
+                <div class="col-lg-8 mb-4">
+                   <div id="co2_emission_detail" class="vis-container"></div>
+                </div>
+                <div class="col-lg-4 p-3 mb-4">
+                    <h3>二氧化碳排放细分</h3>
+                    <p class="text-muted">这个堆积面积图展示了澳大利亚各州二氧化碳排放量的细分情况。</p>
+                </div>
+            </div>
+
+            <!-- footer -->
+            <footer class="text-center row pt-5 my-2 border-top">
+                <p>
+                    Author: Yijiang Luo
+                </p>
+                <p>
+                    Data Source:
+                    <a href="https://www.energy.gov.au/data/australian-energy-statistics" target="_blank">Australian
+                        Energy Statistics</a>,
+                    <a href="https://www.industry.gov.au/data-and-publications/national-greenhouse-gas-inventory"
+                        target="_blank">National Greenhouse Gas Inventory</a>
+                </p>
+                <p>
+                    Github Repository: <a href="https://github.com/monash-yluo/3179-a2-australia-green-energy" target="_blank">3179-a2-australia-green-energy</a>
+                </p>
+                <p>
+                    Create Time: 2025-09-28
+                </p>
+                <p>
+                    Last Update Date: <span id="lastUpdateDate">2025-09-30</span>
+                </p>
+            </footer>
+        </div>
     </main>
+
+    <script>
+        // 获取GitHub最后提交时间
+        fetch('https://api.github.com/repos/monash-yluo/3179-a2-australia-green-energy/commits?per_page=1')
+            .then(response => response.json())
+            .then(commits => {
+                const lastCommitDate = new Date(commits[0].commit.committer.date);
+                document.getElementById('lastUpdateDate').textContent =
+                    lastCommitDate.toISOString().split('T')[0] + ' ' +
+                    lastCommitDate.toLocaleTimeString();
+            })
+            .catch(error => console.error('Error fetching commit data:', error));
+    </script>
 
     <script type="text/javascript">
 
@@ -120,7 +186,15 @@
 
         }).catch(console.error);
 
+        var energy_parallel_coordinate_plot_v2 = "js/energy_parallel_coordinate_plot_v2.vg.json";
+        vegaEmbed('#energy_parallel_coordinate_plot_v2', energy_parallel_coordinate_plot_v2).then(function (result) {
 
+        }).catch(console.error);
+
+        var co2_emission_detail = "js/co2_emission_detail.vg.json";
+        vegaEmbed('#co2_emission_detail', co2_emission_detail).then(function (result) {
+
+        }).catch(console.error);
     </script>
 
 </body>
