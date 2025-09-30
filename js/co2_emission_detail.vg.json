@@ -58,7 +58,23 @@
                 "Agriculture",
                 "Energy",
                 "Land Use, Land-Use Change and Forestry UNFCCC"
-            ]
+            ],
+            "scale": {
+                "domain": [
+                    "Industrial Processes",
+                    "Waste",
+                    "Agriculture",
+                    "Energy",
+                    "Land Use, Land-Use Change and Forestry UNFCCC"
+                ],
+                "range": [
+                    "#FFB74D",
+                    "#FF9800",
+                    "#F57C00",
+                    "#E65100",
+                    "#66BB6A"
+                ]
+            }
         },
         "order":{
             "field": "categoryOrder",
