@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-    "title": "Aus CO2 Emission Detail",
+    "title": "Aus CO2 Emission Detail (1990-2023)",
     "width": "container",
     "height": 300,
     "data": {

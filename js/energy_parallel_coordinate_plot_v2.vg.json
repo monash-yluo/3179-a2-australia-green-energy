@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-    "title": "Electricity Generation and CO2 Emissions (2012-2021)",
+    "title": "Electricity Generation and CO2 Emissions (2012-2023)",
     "width": "container",
     "height": 300,
     "params": [

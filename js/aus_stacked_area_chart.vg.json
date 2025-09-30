@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
     "title": {
-        "text": "Australia (AUS) Electricity Generation by Energy Type",
+        "text": "Australia (AUS) Electricity Generation by Energy Type (1989-2023)",
         "fontSize": 16,
         "anchor": "middle"
     },

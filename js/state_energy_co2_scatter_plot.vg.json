@@ -5,6 +5,12 @@
         "name": "energy_data",
         "url": "https://raw.githubusercontent.com/monash-yluo/3179-a2-australia-green-energy/refs/heads/main/data/energy_state_fy_2023.csv"
     },
+    "config": {
+        "background": "transparent",
+        "view": {
+            "stroke": null
+        }
+    },
     "width": "container",
     "transform": [
         {
