@@ -11,6 +11,10 @@
     "projection": {
         "type": "mercator"
     },
+    "background": "transparent",
+    "view": {
+        "stroke": null
+    },
     "params": [
         {
             "name": "year_selection",

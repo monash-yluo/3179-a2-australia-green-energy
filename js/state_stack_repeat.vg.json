@@ -7,10 +7,12 @@
     },
     "config": {
         "axis": {
-            "grid": true,
+            "grid": false,
             "gridColor": "#e7e7e7"
-        }
+        },
+        "background": "transparent"
     },
+    
     "data": {
         "url": "https://raw.githubusercontent.com/monash-yluo/3179-a2-australia-green-energy/refs/heads/main/data/Table_O_FY_pivot.csv"
     },
@@ -51,7 +53,7 @@
             "labelAngle": 0,
             "labelFontSize": 13,
             "labelFontWeight": "bold",
-            "labelPadding": 8,
+            "labelPadding": 0,
             "titleFontSize": 14,
             "titleFontWeight": "bold",
             "titlePadding": 10

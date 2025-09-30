@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-    "title": "CO2 Emissions And Energy Generation in 2023",
+    "title": "CO₂ Emissions And Energy Generation in 2023",
     "data": {
         "name": "energy_data",
         "url": "https://raw.githubusercontent.com/monash-yluo/3179-a2-australia-green-energy/refs/heads/main/data/energy_state_fy_2023.csv"
@@ -38,7 +38,7 @@
                 "y": {
                     "field": "1 Energy (Mt)",
                     "type": "quantitative",
-                    "title": "CO2 Emissions from Energy (Mt)"
+                    "title": "CO₂ Emissions from Energy (Mt)"
                 },
                 "size": {
                     "field": "renewable_percent",
@@ -55,7 +55,7 @@
                 "tooltip": [
                     {"field": "state", "type": "nominal", "title": "State"},
                     {"field": "total_generation", "type": "quantitative", "title": "Total Energy Generation (GWh)"},
-                    {"field": "1 Energy (Mt)", "type": "quantitative", "title": "CO2 Emissions from Energy (Mt)"},
+                    {"field": "1 Energy (Mt)", "type": "quantitative", "title": "CO₂ Emissions from Energy (Mt)"},
                     {"field": "renewable_percent", "type": "quantitative", "title": "Renewable Percent (%)"}
                 ]
             }

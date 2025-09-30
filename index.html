@@ -62,10 +62,10 @@
 
 <body class="bg-body-tertiary">
     <main>
-        <div class="container p-4 bg-white shadow-sm">
+        <div class="container p-4">
 
             <!-- 标题 -->
-            <div class="row p-4 mx-4 card rounded bg-linear shadow-sm">
+            <div class="row p-4 border rounded bg-linear shadow">
                 <div class="col">
                     <h1 class="text-center text-white fw-bold">Australia Energy & Carbon Dioxide Emissions</h1>
                 </div>
@@ -79,27 +79,28 @@
                 </div>
             </div>
 
-            <!-- 可视化图表 散点图 -->
-            <div class="row my-4 p-3">
+            <!-- 卡片一 -->
+            <div class="row my-4 p-3 border rounded-4 bg-white shadow">
+                <div class="col-12 my-4 text-center mb-4">
+                    <h2>Overview</h2>
+                </div>
+
+                <!-- 可视化图表 散点图 -->
                 <div class="col-lg-6 mb-4">
-                    <h3 class="mb-4">Energy Generation vs <span class="text-theme-orange">CO2 Emissions</span></h3>
+                    <h3 class="mb-4">Energy Generation vs CO<sub>2</sub> Emissions</h3>
                     <p class="text-secondary">
-                    This scatter plot shows the correlation between the total energy generation (in GWh) and energy-related <span class="text-theme-orange">carbon dioxide</span>
+                    This scatter plot shows the correlation between the total energy generation (in GWh) and energy-related carbon dioxide
                     emissions (in Mt) of each state. Each point represents a state and is labeled with its abbreviation.
                     </p>
                     <p class="text-secondary">
                         Although there is little data, some positive correlation can still be observed.
                         It is worth noting that <span class="text-body-emphasis fw-medium">Victoria's power generation is higher than that of Western Australia</span>, 
-                        but due to a <span class="text-body-emphasis fw-medium">higher proportion of <span class="text-theme-green">clean energy</span>, its <span class="text-theme-orange">carbon dioxide</span> emissions are lower.</span>
+                        but due to a <span class="text-body-emphasis fw-medium">higher proportion of <span class="text-theme-green">clean energy</span>, its carbon dioxide emissions are lower.</span>
                     </p>
                 </div>
                 <div class="col-lg-6 mb-4">
                     <div id="energy_scatter_plot" class="vis-container"></div>
                 </div>
-            </div>
-
-            <!-- 可视化图表 地图 -->
-            <div class="row my-4 p-3">
                 <div class="col-lg-8">
                     <div class="col-12">
                         <div id="state_energy_rate_map_year" class="vis-container"></div>
@@ -108,23 +109,29 @@
                         <div class="map-yeaar-slider text-center"></div>
                     </div>
                 </div>
+
+                <!-- 可视化图表 地图 -->
                 <div class="col-lg-4 mb-4">
-                    <h3 class="mb-4">Australia Become <span class="text-theme-green">Greener</span></h3>
+                    <h3 class="mb-4">Australia Become <span class="text-theme-green fw-bolder">Greener</span></h3>
                     <p class="text-secondary">
-                        This map shows the changing trends of the proportion (%) of renewable energy generation in each state of Australia over
+                        This map shows the changing trends of the proportion (%) of renewable energy generation in each state of
+                        Australia over
                         time.
-                        Use the slider to select different years, and the map will be dynamically updated to reflect the proportion of renewable
+                        Use the slider to select different years, and the map will be dynamically updated to reflect the proportion of
+                        renewable
                         energy generation in the selected year.
                     </p>
                     <p class="text-secondary">
-                        As time changes, 
-                        it can be clearly felt from the graph that Australia's clean energy has <span class="text-body-emphasis">developed rapidly over the past decade</span>.
+                        As time changes,
+                        it can be clearly felt from the graph that Australia's clean energy has <span
+                            class="text-body-emphasis">developed rapidly over the past decade</span>.
                     </p>
                 </div>
             </div>
 
+            <!-- 卡片2 -->
             <!-- 细分能源结构 AUS -->
-            <div class="row my-4 p-3">
+            <div class="row my-4 p-3 border rounded-4 bg-white shadow">
                 <div class="col-12 my-4 text-center mb-4">
                     <h2>Let's Explore The Energy Structure of Australia</h2>
                     <p class="text-body-secondary">Australia's State Energy Structure Breakdown Gourp By 
@@ -135,13 +142,31 @@
                         (Note: Data Missing from 2000-2010)
                     </p>
                 </div>
-                <div class="col-12 mb-4">
+
+                <div class="col-lg-4">
+                    <h4 class="mb-2">Non-renewable Energy</h4>
+                    <p class="text-secondary">
+                        <span class="text-theme-orange fw-bolder">Black coal</span> has long occupied a core position in power generation and is the most important source of electricity; 
+                        <span class="text-theme-orange fw-bolder">Brown coal</span>, 
+                        <span class="text-theme-orange fw-bolder">Natural gas</span>, 
+                        also contribute a large amount of electricity, but the dominance of <span class="text-body-emphasis fw-medium">black coal is the most prominent.</span>
+                    </p>
+                    <h4 class="mb-2">Renewable Energy</h4>
+                    <p class="text-secondary">
+                        Such as <span class="text-theme-green fw-bolder">wind</span> energy, 
+                        <span class="text-theme-green fw-bolder">large-scale/small-scale solar photovoltaic</span>, 
+                        <span class="text-theme-green fw-bolder">biogas</span>
+                        has expanded significantly from the later period, reflecting that the proportion of renewable energy
+                        power generation in Australia is continuing to grow, and the trend of energy transformation is gradually emerging.
+                        The proportion of electricity generated by <span class="text-theme-blue fw-bolder">hydropower (Hydro)</span> is relatively stable and is a stable component of the
+                        clean energy system.
+                    </p>
+                </div>
+                <div class="col-lg-8 mb-4">
                     <div id="aus_stacked_area_chart" class="vis-container"></div>
                 </div>
-            </div>
 
-            <!-- 州能源细分 -->
-            <div class="row my-4 p-3">
+                <!-- 州能源细分 -->
                 <div class="col-12 text-center mb-4">
                     <h2>More Close To State</h2>
                     <p class="fw-light">Australia's State Energy Structure Breakdown</p>
@@ -151,21 +176,26 @@
                 </div>
             </div>
 
+            <!-- 卡片3 -->
             <!-- 回到二氧化碳 -->
-            <div class="row my-4 p-3">
+            <div class="row my-4 p-3 border rounded-4 bg-white shadow">
                 <div class="col-12 my-4 p-3 text-center">
-                    <h2>Back To <span class="text-theme-orange">CO2 Emissions</span></h2>
+                    <h2>Back To CO<sub>2</sub> Emissions</h2>
                 </div>
 
                 <!-- 寻找二氧化碳和能源的关系 -->
                 <div class="col-lg-4 p-3 my-4">
-                    <h3 class="mb-4">Finding the Relationship between <span class="text-theme-orange">CO2 Emissions</span> and Energy</h3>
+                    <h3 class="mb-4"><span class="text-body-emphasis fw-bolder">Coal</span> is the main source of carbon emissions.</h3>
                     <p class="text-secondary">
-                        This parallel coordinate plot shows the relationship between different energy sources and <span class="text-theme-orange">carbon dioxide</span> emissions.
+                        This parallel coordinate plot shows the relationship between different energy sources and <span class="text-body-emphasis fw-medium">CO₂</span> emissions.
                         Each axis represents an <span class="text-body-emphasis fw-medium">non-renewable energy</span>, and the lines connect the data points for each state.
                     </p>
-                    <p>
-                        看起来, 最主要的碳排放是Brown Coal和Black Coal.
+                    <p class="text-secondary">
+                    The higher the line is on the <span class="text-body-emphasis fw-medium">"Brown"</span> and <span class="text-body-emphasis fw-medium">"Black Coal"</span> axis, the higher its end point tends to be on the "CO₂
+                    Emissions" axis.
+                    This directly proves that <span class="text-body-emphasis fw-medium">brown and black coal are the core energy sources driving carbon emissions</span>. In contrast, the
+                    lines corresponding to petroleum products and natural gas are generally lower, making their contribution to carbon
+                    emissions relatively limited.
                     </p>
                 </div>
                 <div class="col-lg-8 p-3 my-4">
@@ -177,16 +207,23 @@
                    <div id="co2_emission_detail" class="vis-container"></div>
                 </div>
                 <div class="col-lg-4 p-3 my-4">
-                    <h3>二氧化碳排放细分</h3>
-                    <p class="text-muted">这个堆积面积图展示了澳大利亚各州二氧化碳排放量的细分情况。</p>
+                    <h3 class="mb-4">It's <span class="text-body-emphasis fw-bolder">not</span> just the energy sector that generates carbon emissions.</h3>
+                    <p class="text-secondary">
+                        The core source of emissions is the <span class="text-theme-orange fw-bolder">energy sector</span>, which has always accounted for the largest proportion and is a key
+                        area driving carbon emissions.
+                        Industrial Processes, Waste, Agriculture and other sectors also contribute a certain scale of carbon emissions.
+                    </p>
+                    <p class="text-secondary">
+                        The green areas related to <span class="text-theme-green fw-bolder">Land Use, Land - Use Change and Forestry</span> showed negative values in the later period, which
+                        means that this field has transformed from a <span class="text-body-emphasis fw-medium">"carbon emission source" to a "carbon sink"</span> (that is, the amount of carbon
+                        dioxide absorbed exceeds the amount emitted).
+                    </p>
                 </div>
             </div>
 
+            <!-- 卡片4 -->
             <!-- footer -->
-            <footer class="text-center row pt-5 my-2 border-top">
-                <p>
-                    Author: Yijiang Luo
-                </p>
+            <footer class="text-center row pt-4 my-4 border-top">
                 <p>
                     Data Source:
                     <a href="https://www.energy.gov.au/publications/australian-energy-update-2025" target="_blank">Australian
@@ -197,10 +234,13 @@
                 <p>
                     Github Repository: <a href="https://github.com/monash-yluo/3179-a2-australia-green-energy" target="_blank">3179-a2-australia-green-energy</a>
                 </p>
-                <p>
+                <p class="text-secondary">
+                    Author: Yijiang Luo
+                </p>
+                <p class="text-secondary">
                     Create Time: 2025-09-28
                 </p>
-                <p>
+                <p class="text-secondary">
                     Last Update Date: <span id="lastUpdateDate">2025-09-30</span>
                 </p>
             </footer>

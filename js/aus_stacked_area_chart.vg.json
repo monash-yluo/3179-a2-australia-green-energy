@@ -9,8 +9,11 @@
     "height":400,
     "config": {
         "axis": {
-            "grid": true,
-            "gridColor": "#e7e7e7"
+            "grid": false
+        },
+        "background": "transparent",
+        "view": {
+            "stroke": null
         }
     },
     "data": {

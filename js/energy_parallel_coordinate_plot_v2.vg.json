@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-    "title": "Electricity Generation and CO2 Emissions (2012-2023)",
+    "title": "Electricity Generation and CO₂ Emissions (2012-2023)",
     "width": "container",
-    "height": 300,
+    "height": 350,
     "params": [
         {
             "name": "selected_jurisdiction",
@@ -186,7 +186,7 @@
                     {
                         "field": "CO2_Emissions",
                         "type": "quantitative",
-                        "title": "CO2 Emissions (Mt)"
+                        "title": "CO₂ Emissions (Mt)"
                     }
                 ]
             }
@@ -322,6 +322,7 @@
             "tick": {
                 "orient": "horizontal"
             }
-        }
+        },
+        "background": "transparent"
     }
 }
