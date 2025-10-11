@@ -61,6 +61,10 @@
     },
     "columns": 4,
     "spec": {
+        "autosize": {
+            "type": "fit",
+            "contains": "padding"
+        },
         "width": "container",
         "mark": {
             "type": "area"
