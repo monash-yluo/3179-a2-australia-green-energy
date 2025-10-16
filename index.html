@@ -32,20 +32,8 @@
             width: 25%;
         }
 
-        .bg-mesh-417 {
-            background: url('/img/mesh-417.png') cover no-repeat;
-        }
-
         .bg-linear {
             background: linear-gradient(45deg, #4d8b31 0%, #ff8427 100%);
-        }
-
-        .bg-black {
-            background-color: #1e212b;
-        }
-
-        .bg-green {
-            background-color: #4d8b31;
         }
 
         .text-theme-green {
@@ -110,14 +98,14 @@
 
         <div class="container p-4">
 
-            <!-- 标题 -->
+            <!-- 标题 title -->
             <div class="row p-4 border rounded bg-linear shadow">
                 <div class="col">
                     <h1 class="text-center text-white fw-bold">Australia Energy & Carbon Dioxide Emissions</h1>
                 </div>
             </div>
 
-            <!-- 介绍 -->
+            <!-- 介绍 introduction -->
             <div class="row my-4 py-3 px-4">
                 <div class="col">
                     <p class="lead text-body-secondary">This data visualization aims to present the structure of clean
@@ -126,13 +114,13 @@
                 </div>
             </div>
 
-            <!-- 卡片一 -->
+            <!-- 卡片一 总览 overview -->
             <div class="row my-4 p-3 border rounded-4 bg-body-tertiary shadow">
                 <div class="col-12 mt-4 text-center">
                     <h2>Overview</h2>
                 </div>
 
-                <!-- 可视化图表 散点图 -->
+                <!-- 可视化图表 散点图 energy generation vs co2 emissions -->
                 <div class="col-lg-6 my-4">
                     <h3 class="mb-4">Energy Generation vs CO<sub>2</sub> Emissions</h3>
                     <p class="text-secondary">
@@ -162,7 +150,7 @@
                     </div>
                 </div>
 
-                <!-- 可视化图表 地图 -->
+                <!-- 可视化图表 地图 state energy rate map -->
                 <div class="col-lg-4 my-4">
                     <h3 class="mb-4">Australia Become <span class="text-theme-green fw-bolder">Greener</span></h3>
                     <p class="text-secondary">
@@ -186,11 +174,11 @@
             </div>
 
             <!-- 卡片2 -->
-            <!-- 细分能源结构 AUS -->
+            <!-- 细分能源结构 AUS state energy structure -->
             <div class="row my-4 p-3 border rounded-4 bg-body-tertiary shadow">
                 <div class="col-12 my-4 text-center mb-4">
                     <h2 class="pb-3">Let's Explore The Energy Structure of Australia</h2>
-                    <p class="text-body-secondary">Australia's State Energy Structure Breakdown Gourp By
+                    <p class="text-body-secondary fw-light">Australia's State Energy Structure Breakdown Gourp By
                         <span class="fw-bolder text-theme-green">Renewable</span>,
                         <span class="fw-bolder text-theme-blue">Hydro</span>
                         And
@@ -201,6 +189,10 @@
 
                 <div class="col-lg-4">
                     <h4 class="mb-2">Non-renewable Energy</h4>
+                    <p class="fw-light">
+                        The <span class="fw-bolder text-theme-orange">orange color theme</span> represents sources of <span
+                            class="fw-bolder text-theme-orange">CO₂</span> emissions.
+                    </p>
                     <p class="text-secondary">
                         <span class="text-theme-orange fw-bolder">Black coal</span> has long occupied a core position in
                         power generation and is the most important source of electricity;
@@ -227,8 +219,8 @@
                     <div id="aus_stacked_area_chart" class="vis-container"></div>
                 </div>
 
-                <!-- 州能源细分 -->
-                <div class="col-12 text-center mb-4">
+                <!-- 州能源细分 state energy structure -->
+                <div class="col-12 text-center mb-4 mt-4">
                     <h2>More Close To State</h2>
                     <p class="fw-light">Australia's State Energy Structure Breakdown</p>
                 </div>
@@ -292,7 +284,7 @@
             </div>
 
             <!-- 卡片3 -->
-            <!-- 回到二氧化碳 -->
+            <!-- 回到二氧化碳 back to co2 emissions -->
             <div class="row my-4 p-3 border rounded-4 bg-body-tertiary shadow">
                 <div class="col-12 mt-4 text-center">
                     <h2>Back To CO<sub>2</sub> Emissions</h2>
@@ -331,6 +323,9 @@
                 <div class="col-lg-4 p-3 my-4">
                     <h3 class="mb-4">It's <span class="text-body-emphasis fw-bolder">not</span> just the energy sector
                         that generates carbon emissions.</h3>
+                    <p class="fw-light">
+                    The <span class="fw-bolder text-theme-orange">orange color theme</span> represents sources of <span class="fw-bolder text-theme-orange">CO₂</span> emissions.
+                    </p>
                     <p class="text-secondary">
                         The core source of emissions is the <span class="text-theme-orange fw-bolder">energy
                             sector</span>, which has always accounted for the largest proportion and is a key

@@ -6,7 +6,7 @@
         "anchor": "middle"
     },
     "width": "container",
-    "height": 400,
+    "height": 440,
     "config": {
         "axis": {
             "grid": false
